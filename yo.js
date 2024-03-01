@@ -1,63 +1,30 @@
-let getal = 1;
-// let mysteryNumber = Math.random() * 6;
-// mysteryNumber = Math.round(mysteryNumber);
-// console.log(mysteryNumber);
+let aantalkoekjes = 0;
+let koekjesPerKlik = 1;
+let koekjesVeld = document.querySelector('h1');
 
-const plusknop = document.querySelector("#plus");
+function verhoogKoekjes(){
 
-// const minKnop = document.querySelector('#min');
-
-let getalVeld = document.querySelector('h1');
-
-// const controleerKnop = document.querySelector("#controleer");
-
-// const pElement = document.querySelector('#para');
-
-
-function verhoogGetal(){
-
-getal = getal + 1;
-updateGetal();
+    aantalkoekjes += koekjesPerKlik;
+    updateKoekjes();
     
 }
 
-// function verlaagGetal(){
+function bakker(){
 
-//     getal = getal - 1;
-//     updateGetal();
-        
-// }
+    if(aantalkoekjes >= 100) {
+        koekjesPerKlik += 1;
+        aantalkoekjes -= 100;
+    } else {
+        alert("te weinng koekjes om te kopen")
+    }
 
-function updateGetal() {
-    // console.log("getal: " + getal);
-    getalVeld.textContent = getal + "Koekjes";
+    updateKoekjes();
+    
 }
 
-verhoogGetal();
-// verlaagGetal();
-updateGetal();
+function updateKoekjes() {
+    koekjesVeld.textContent = aantalkoekjes + "Koekjes";
+}
 
-plusknop.addEventListener('click', verhoogGetal);
-// minKnop.addEventListener('click', verlaagGetal);
-
-// function controleerGetal(){
-
-//     if(getal === mysteryNumber){
-//         pElement.textContent = ("Goed geraden");
-
-//         } else if (getal > mysteryNumber){
-//         pElement.textContent = ("Helaas, te hoog.");
-//         } else {
-            
-//             pElement.textContent = ("Helaas, te laag.");
-
-//         }
-    
-        
-// }
-
-// controleerKnop.addEventListener('click', controleerGetal);
-
-// pElement.textContent = ("Helaas, te hoog.");
-
-// console.log(pElement);
+koekje.addEventListener('click', verhoogKoekjes);
+klikUpgrade.addEventListener('click', bakker);
