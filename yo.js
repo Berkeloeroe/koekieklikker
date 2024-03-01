@@ -1,17 +1,17 @@
 let getal = 1;
-let mysteryNumber = Math.random() * 6;
-mysteryNumber = Math.round(mysteryNumber);
+// let mysteryNumber = Math.random() * 6;
+// mysteryNumber = Math.round(mysteryNumber);
 // console.log(mysteryNumber);
 
 const plusknop = document.querySelector("#plus");
 
-const minKnop = document.querySelector('#min');
+// const minKnop = document.querySelector('#min');
 
 let getalVeld = document.querySelector('h1');
 
-const controleerKnop = document.querySelector("#controleer");
+// const controleerKnop = document.querySelector("#controleer");
 
-const pElement = document.querySelector('#para');
+// const pElement = document.querySelector('#para');
 
 
 function verhoogGetal(){
@@ -21,12 +21,12 @@ updateGetal();
     
 }
 
-function verlaagGetal(){
+// function verlaagGetal(){
 
-    getal = getal - 1;
-    updateGetal();
+//     getal = getal - 1;
+//     updateGetal();
         
-}
+// }
 
 function updateGetal() {
     // console.log("getal: " + getal);
@@ -34,30 +34,30 @@ function updateGetal() {
 }
 
 verhoogGetal();
-verlaagGetal();
+// verlaagGetal();
 updateGetal();
 
 plusknop.addEventListener('click', verhoogGetal);
-minKnop.addEventListener('click', verlaagGetal);
+// minKnop.addEventListener('click', verlaagGetal);
 
-function controleerGetal(){
+// function controleerGetal(){
 
-    if(getal === mysteryNumber){
-        pElement.textContent = ("Goed geraden");
+//     if(getal === mysteryNumber){
+//         pElement.textContent = ("Goed geraden");
 
-        } else if (getal > mysteryNumber){
-        pElement.textContent = ("Helaas, te hoog.");
-        } else {
+//         } else if (getal > mysteryNumber){
+//         pElement.textContent = ("Helaas, te hoog.");
+//         } else {
             
-            pElement.textContent = ("Helaas, te laag.");
+//             pElement.textContent = ("Helaas, te laag.");
 
-        }
+//         }
     
         
-}
+// }
 
-controleerKnop.addEventListener('click', controleerGetal);
+// controleerKnop.addEventListener('click', controleerGetal);
 
-pElement.textContent = ("Helaas, te hoog.");
+// pElement.textContent = ("Helaas, te hoog.");
 
 // console.log(pElement);
