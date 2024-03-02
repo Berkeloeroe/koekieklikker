@@ -10,10 +10,16 @@ body {
     overflow-x: hidden;
 }
 
-section {
+.eerste {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.tweede {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
 
 h1 {
@@ -33,7 +39,7 @@ h2 {
 }
 
 #klikUpgrade {
-    width: 300px;
+    width: 200px;
 }
 
 /* https: //flaviocopes.com/rotate-image/ */
