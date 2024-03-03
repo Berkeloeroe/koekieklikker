@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play Sound On Image Click</title>
+  </head>
+  <body>
+    <!-- Hier is de afbeelding waarop geklikt kan worden -->
+    <img
+      src="media/koekje.png"
+      id="image"
+      style="cursor: pointer"
+      alt="Click Me"
+    />
+
+    <!-- Hier is het geluidsbestand dat afgespeeld moet worden -->
+    <audio id="audio" src="sound.mp3"></audio>
+
+    <script>
+      // Haal de afbeelding en het audio-element op
+      var image = document.getElementById("image");
+      var audio = document.getElementById("audio");
+
+      // Voeg een click event listener toe aan de afbeelding
+      image.addEventListener("click", function () {
+        // Speel het geluid af
+        audio.play();
+      });
+    </script>
+  </body>
+</html>
