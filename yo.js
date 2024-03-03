@@ -23,7 +23,7 @@ function bakker(){
 }
 
 function updateKoekjes() {
-    koekjesVeld.textContent = aantalkoekjes + "Koekjes";
+    koekjesVeld.textContent = aantalkoekjes + "-" + "Koekjes";
 }
 
 koekje.addEventListener('click', verhoogKoekjes);
@@ -62,4 +62,13 @@ let audio = document.getElementById("audio");
     audio.currentTime = 0;
 
     audio.play();
+});
+
+let powerklik = document.getElementById("klikUpgrade");
+let shopify = document.getElementById("shopify");
+
+    klikUpgrade.addEventListener("click", function () {
+    shopify.currentTime = 0;
+
+    shopify.play();
 });
