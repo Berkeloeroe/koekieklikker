@@ -91,3 +91,9 @@ h3 {
     touch-action: manipulation;
 }
 
+#autoUpgrade {
+    width: 200px;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+

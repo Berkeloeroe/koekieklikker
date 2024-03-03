@@ -1,19 +1,26 @@
 let aantalkoekjes = 0;
 let koekjesPerKlik = 1;
+let koekjesPerSeconde = 0;
 let koekjesVeld = document.querySelector('h2');
 let bakkerPrijs = 20;
+let autoPrijs = 50;
 
+// https://dlo.mijnhva.nl/d2l/le/content/536457/viewContent/1958535/View
 function verhoogKoekjes(){
     aantalkoekjes += koekjesPerKlik;
     updateKoekjes();
 }
 
+// https://www.youtube.com/watch?v=9Fr5Q18rLcY
 function bakker(){
     if(aantalkoekjes >= bakkerPrijs) {
         koekjesPerKlik += 1;
         aantalkoekjes -= bakkerPrijs;
         bakkerPrijs = Math.round(bakkerPrijs *1.7);
         document.getElementById("test").innerHTML = "Power klik prijs: " + bakkerPrijs;
+        // werkt half
+        shopify.play();
+
     } else {
         alert("Te weinig koekjes om te kopen")
     }
@@ -22,39 +29,50 @@ function bakker(){
     
 }
 
+klikUpgrade.addEventListener('click', bakker);
+
+// koop geluid wanneer je upgrade koopt
+let powerklik = document.getElementById("klikUpgrade");
+let shopify = document.getElementById("shopify");
+
+    klikUpgrade.addEventListener("click", function () {
+    shopify.currentTime = 0;
+
+});
+
+// h2 updaten
 function updateKoekjes() {
     koekjesVeld.textContent = aantalkoekjes + "-" + "Koekjes";
 }
 
 koekje.addEventListener('click', verhoogKoekjes);
-klikUpgrade.addEventListener('click', bakker);
 
-// img = document.getElementById("koekje");
-// console.log(img)
+// auto kliks upgrade
+function koopAuto() {
+    if(aantalkoekjes >= autoPrijs) {
+        aantalkoekjes -= autoPrijs;
+        koekjesPerSeconde += 1;
+        autoPrijs = Math.round(autoPrijs *1.7);
+        document.getElementById("test2").innerHTML = "Bakker prijs: " + autoPrijs;
+        // werkt half
+        shopify.play();
 
-// function enlargeImg() {
+    } else {
+        alert("Te weinig koekjes om te kopen")
 
-//     img.style.transform = "scale(1.5)";
+    }
+}
 
-// }
+autoUpgrade.addEventListener('click', koopAuto);
 
-// enlargeImg()
-// console.log(enlargeImg)
+// https://youtu.be/-YnocONplws
+setInterval(function() {
+    aantalkoekjes += koekjesPerSeconde;
+    updateKoekjes();
 
-// koekje.addEventListener('click', enlargeImg);
+}, 1000)
 
-
-// function test() {
-//     if (aantalkoekjes == 30) {
-//             alert("yoyoyoyoy")
-
-//     }
-// }    
-
-// test()
-// console.log(test)
-
-// chatgpt schrijf voor mij in javascript hoe ik  met een druk op een foto een geluid afspeel
+// chatgpt "schrijf voor mij in javascript hoe ik met een druk op een foto een geluid afspeel"
 let image = document.getElementById("koekje");
 let audio = document.getElementById("audio");
 
@@ -62,13 +80,4 @@ let audio = document.getElementById("audio");
     audio.currentTime = 0;
 
     audio.play();
-});
-
-let powerklik = document.getElementById("klikUpgrade");
-let shopify = document.getElementById("shopify");
-
-    klikUpgrade.addEventListener("click", function () {
-    shopify.currentTime = 0;
-
-    shopify.play();
 });
