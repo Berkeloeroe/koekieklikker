@@ -6,19 +6,23 @@
 }
 
 body {
-    /* background: linear-gradient(0deg, rgba(0, 90, 162, 1) 0%, rgba(0, 181, 255, 1) 100%); */
     background-image: url("media/bg2.jpg");
-    height: 100vh;
-    max-width: 100%;
     overflow: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 }
 
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 4% 0;
-    /* background-color: black;opacity: 0.5; */
+    gap: 20px;
+    padding: 3% 0;
     background: rgba(0, 0, 0, 0.5)
 }
 
@@ -26,6 +30,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 100%;
 }
 
 .tweede {
@@ -51,7 +56,7 @@ h3 {
 
 /* koekje laten draaien */
 #koekje {
-    width: 600px;
+    width: 400px;
     cursor: pointer;
     animation: rotation 60s infinite linear;
     touch-action: manipulation;
