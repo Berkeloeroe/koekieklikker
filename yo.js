@@ -29,23 +29,27 @@ function updateKoekjes() {
 koekje.addEventListener('click', verhoogKoekjes);
 klikUpgrade.addEventListener('click', bakker);
 
+// img = document.getElementById("koekje");
+// console.log(img)
+
+// function enlargeImg() {
+
+//     img.style.transform = "scale(1.5)";
+
+// }
+
+// enlargeImg()
+// console.log(enlargeImg)
+
+// koekje.addEventListener('click', enlargeImg);
 
 
-img = document.getElementById("koekje");
-console.log(img)
+function test() {
+    if (aantalkoekjes == 30) {
+            alert("yoyoyoyoy")
 
-function enlargeImg() {
+    }
+}    
 
-    img.style.transform = "scale(1.5)";
-
-}
-
-enlargeImg()
-console.log(enlargeImg)
-
-
-koekje.addEventListener('click', enlargeImg);
-
-
-
-        
+test()
+console.log(test)
