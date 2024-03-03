@@ -15,7 +15,7 @@ function bakker(){
         bakkerPrijs = Math.round(bakkerPrijs *1.7);
         document.getElementById("test").innerHTML = "Power klik prijs: " + bakkerPrijs;
     } else {
-        alert("te weinng koekjes om te kopen")
+        alert("Te weinig koekjes om te kopen")
     }
 
     updateKoekjes();
@@ -44,12 +44,22 @@ klikUpgrade.addEventListener('click', bakker);
 // koekje.addEventListener('click', enlargeImg);
 
 
-function test() {
-    if (aantalkoekjes == 30) {
-            alert("yoyoyoyoy")
+// function test() {
+//     if (aantalkoekjes == 30) {
+//             alert("yoyoyoyoy")
 
-    }
-}    
+//     }
+// }    
 
-test()
-console.log(test)
+// test()
+// console.log(test)
+
+// chatgpt schrijf voor mij in javascript hoe ik  met een druk op een foto een geluid afspeel
+let image = document.getElementById("koekje");
+let audio = document.getElementById("audio");
+
+    koekje.addEventListener("click", function () {
+    audio.currentTime = 0;
+
+    audio.play();
+});

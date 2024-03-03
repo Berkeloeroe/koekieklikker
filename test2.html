@@ -15,7 +15,7 @@
     />
 
     <!-- Hier is het geluidsbestand dat afgespeeld moet worden -->
-    <audio id="audio" src="sound.mp3"></audio>
+    <audio id="audio" src="media/chap (mp3cut.net).mp3"></audio>
 
     <script>
       // Haal de afbeelding en het audio-element op
@@ -24,6 +24,8 @@
 
       // Voeg een click event listener toe aan de afbeelding
       image.addEventListener("click", function () {
+        audio.currentTime = 0;
+
         // Speel het geluid af
         audio.play();
       });
