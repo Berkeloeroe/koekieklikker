@@ -60,7 +60,7 @@ setInterval(function() {
 
 // h2 updaten naar aantal koekjes
 function updateKoekjes() {
-    koekjesVeld.textContent = Math.round(aantalkoekjes) + "-" + "Koekjes!";
+    koekjesVeld.textContent = Math.round(aantalkoekjes) + " " + "-" + " Koekjes!";
 }
 
 koekje.addEventListener('click', verhoogKoekjes);
