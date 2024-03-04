@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click to Show Number</title>
+    <style>
+      #number {
+        font-size: 24px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      src="media/bakker.png"
+      alt="Click me"
+      id="image"
+      onclick="showNumber()"
+    />
+    <div id="number"></div>
+
+    <script>
+      var clickCount = 0;
+
+      function showNumber() {
+        clickCount++;
+        document.getElementById("number").innerText = clickCount;
+      }
+    </script>
+  </body>
+</html>

@@ -4,13 +4,13 @@ let koekjesPerSeconde = 0;
 let koekjesVeld = document.querySelector('h2');
 let powerKlikPrijs = 20;
 let autoKlikPrijs = 50;
-const fps = 30;
+const fps = 60;
 
-let developmentmode = false;
+// let developmentmode = true;
 
-if (developmentmode === true) {
-    aantalkoekjes = 1000000;
-}
+// if (developmentmode === true) {
+//     aantalkoekjes = 1000000;
+// }
 
 // verhoog het aantal koekjes
 function verhoogKoekjes(){
@@ -18,13 +18,23 @@ function verhoogKoekjes(){
     updateKoekjes();
 }
 
-// powerklik upgrade https://www.youtube.com/watch?v=9Fr5Q18rLcY
+koekje.addEventListener('click', verhoogKoekjes);
+
+// h2 updaten naar aantal koekjes
+function updateKoekjes() {
+    koekjesVeld.textContent = Math.round(aantalkoekjes) + " " + "-" + " Koekjes!";
+}
+
+let minikoekfoto = "<img src='media/koek.png' alt='Foto' class='minikoek'/>";
+
+// powerklik upgrade
 function powerKlik(){
     if(aantalkoekjes >= powerKlikPrijs) {
         koekjesPerKlik += 1;
         aantalkoekjes -= powerKlikPrijs;
         powerKlikPrijs = Math.round(powerKlikPrijs *1.7);
-        document.getElementById("test").innerHTML = "Power klik prijs: " + powerKlikPrijs;
+        // document.getElementById("test").innerHTML = "Power klik prijs: " + powerKlikPrijs;
+        document.getElementById("test").innerHTML = minikoekfoto + powerKlikPrijs;
         shopify.play();
 
     } else {
@@ -35,13 +45,13 @@ function powerKlik(){
 
 klikUpgrade.addEventListener('click', powerKlik);
 
-// koop bakker upgrade https://youtu.be/-YnocONplws koekjes per seconde
-function koopAuto() {
+// koop bakker upgrade 
+function bakker() {
     if(aantalkoekjes >= autoKlikPrijs) {
         aantalkoekjes -= autoKlikPrijs;
         koekjesPerSeconde += 1;
         autoKlikPrijs = Math.round(autoKlikPrijs *1.7);
-        document.getElementById("test2").innerHTML = "Bakker prijs: " + autoKlikPrijs;
+        document.getElementById("test2").innerHTML = minikoekfoto + autoKlikPrijs;
         shopify.play();
 
     } else {
@@ -49,7 +59,7 @@ function koopAuto() {
     }
 }
 
-autoUpgrade.addEventListener('click', koopAuto);
+autoUpgrade.addEventListener('click', bakker);
 
 // automatisch koekjes erbij per seconde
 setInterval(function() {
@@ -57,13 +67,6 @@ setInterval(function() {
     updateKoekjes();
 
 }, 1000/fps)
-
-// h2 updaten naar aantal koekjes
-function updateKoekjes() {
-    koekjesVeld.textContent = Math.round(aantalkoekjes) + " " + "-" + " Koekjes!";
-}
-
-koekje.addEventListener('click', verhoogKoekjes);
 
 // chatgpt "schrijf voor mij in javascript hoe ik met een druk op een foto een geluid afspeel"
 let image = document.getElementById("koekje");
@@ -80,6 +83,13 @@ let powerklik = document.getElementById("klikUpgrade");
 let shopify = document.getElementById("shopify");
 
     klikUpgrade.addEventListener("click", function () {
+    shopify.currentTime = 0;
+
+});
+
+let bakkerfoto = document.getElementById("autoUpgrade");
+
+    autoUpgrade.addEventListener("click", function () {
     shopify.currentTime = 0;
 
 });
