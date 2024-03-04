@@ -4,6 +4,13 @@ let koekjesPerSeconde = 0;
 let koekjesVeld = document.querySelector('h2');
 let powerKlikPrijs = 20;
 let autoKlikPrijs = 50;
+const fps = 30;
+
+let developmentmode = false;
+
+if (developmentmode === true) {
+    aantalkoekjes = 1000000;
+}
 
 // verhoog het aantal koekjes
 function verhoogKoekjes(){
@@ -21,7 +28,7 @@ function powerKlik(){
         shopify.play();
 
     } else {
-        alert("Te weinig koekjes om te kopen")
+        alert("Te weinig koekjes om te kopen");
     }
     updateKoekjes();
 }
@@ -44,15 +51,16 @@ function koopAuto() {
 
 autoUpgrade.addEventListener('click', koopAuto);
 
+// automatisch koekjes erbij per seconde
 setInterval(function() {
-    aantalkoekjes += koekjesPerSeconde;
+    aantalkoekjes += koekjesPerSeconde/fps;
     updateKoekjes();
 
-}, 1000)
+}, 1000/fps)
 
 // h2 updaten naar aantal koekjes
 function updateKoekjes() {
-    koekjesVeld.textContent = aantalkoekjes + "-" + "Koekjes";
+    koekjesVeld.textContent = Math.round(aantalkoekjes) + "-" + "Koekjes!";
 }
 
 koekje.addEventListener('click', verhoogKoekjes);
