@@ -31,7 +31,7 @@ function bakker(){
 
 klikUpgrade.addEventListener('click', bakker);
 
-// koop geluid wanneer je upgrade koopt
+// koop geluid wanneer je powerklik upgrade koopt
 let powerklik = document.getElementById("klikUpgrade");
 let shopify = document.getElementById("shopify");
 
@@ -80,4 +80,9 @@ let audio = document.getElementById("audio");
     audio.currentTime = 0;
 
     audio.play();
+});
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    let intro = document.getElementById('intro');
+    intro.play();
 });
