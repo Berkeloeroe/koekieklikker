@@ -10,6 +10,14 @@ body {
     overflow-x: hidden;
 }
 
+@media (max-widht: 500px) {
+
+    body {
+        background-image: url("media/bgmobile.png");
+    }
+
+}
+
 main {
     display: flex;
     flex-direction: column;
