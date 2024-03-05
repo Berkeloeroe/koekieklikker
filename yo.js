@@ -6,11 +6,11 @@ let powerKlikPrijs = 20;
 let autoKlikPrijs = 50;
 const fps = 60;
 
-// let developmentmode = true;
+let developmentmode = false;
 
-// if (developmentmode === true) {
-//     aantalkoekjes = 1000000;
-// }
+if (developmentmode === true) {
+    aantalkoekjes = 1000000;
+}
 
 // verhoog het aantal koekjes
 function verhoogKoekjes(){
@@ -33,7 +33,6 @@ function powerKlik(){
         koekjesPerKlik += 1;
         aantalkoekjes -= powerKlikPrijs;
         powerKlikPrijs = Math.round(powerKlikPrijs *1.7);
-        // document.getElementById("test").innerHTML = "Power klik prijs: " + powerKlikPrijs;
         document.getElementById("test").innerHTML = minikoekfoto + powerKlikPrijs;
         shopify.play();
 
@@ -80,14 +79,13 @@ let audio = document.getElementById("eetGeluid");
 
 // koop geluid wanneer je powerklik upgrade koopt
 let powerklik = document.getElementById("klikUpgrade");
+let bakkerfoto = document.getElementById("autoUpgrade");
 let shopify = document.getElementById("shopify");
 
     klikUpgrade.addEventListener("click", function () {
     shopify.currentTime = 0;
 
 });
-
-let bakkerfoto = document.getElementById("autoUpgrade");
 
     autoUpgrade.addEventListener("click", function () {
     shopify.currentTime = 0;
