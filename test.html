@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Click to Show Number</title>
-    <style>
-      #number {
-        font-size: 24px;
-        margin-top: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <img
-      src="media/bakker.png"
-      alt="Click me"
-      id="image"
-      onclick="showNumber()"
-    />
-    <div id="number"></div>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Show Photo After 10 Seconds</title>
+<style>
+  #photo {
+    display: none;
+    cursor: pointer;
 
-    <script>
-      var clickCount = 0;
+  }
+</style>
+</head>
+<body>
 
-      function showNumber() {
-        clickCount++;
-        document.getElementById("number").innerText = clickCount;
-      }
-    </script>
-  </body>
+<img id="photo" src="media/koek.png" alt="Your Photo">
+
+<script>
+  // Functie om de foto na 10 seconden weer te geven
+  function showPhoto() {
+    document.getElementById('photo').style.display = 'block';
+  }
+
+  // Wachten op 10 seconden voordat de foto wordt weergegeven
+  setTimeout(showPhoto, 2000);
+
+let aantalkoekjes = 0;
+let koekjesVeld = document.querySelector('h2');
+
+// verhoog het aantal koekjes
+
+photo.addEventListener('click', updateKoekjes);
+
+// h2 updaten naar aantal koekjes
+function updateKoekjes() {
+    alert("Te weinig koekjes om te kopen");
+
+}
+</script>
+
+</body>
 </html>

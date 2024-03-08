@@ -52,6 +52,7 @@ function bakker() {
         autoKlikPrijs = Math.round(autoKlikPrijs *1.7);
         document.getElementById("test2").innerHTML = minikoekfoto + autoKlikPrijs;
         shopify.play();
+        // Koekjes per seconde updaten in html
         let kps = document.getElementById("kps")
         document.getElementById("kps").innerHTML = koekjesPerSeconde + " " + "Koekjes per seconden";
 
@@ -95,12 +96,50 @@ let shopify = document.getElementById("shopify");
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Selecteer het audio-element
-    let lol = document.getElementById("myAudio");
-    // Speel het geluid af
-    lol.play();
-  });
+
+
+  
+
+
+
+
+// Functie om de foto na 10 seconden weer te geven bron: chatgpt
+function showPhoto() {
+    document.getElementById('photo').style.display = 'block';
+    // Event listener toevoegen aan de foto om te luisteren naar klikgebeurtenissen
+    document.getElementById('photo').addEventListener('click', function() {
+        // Verberg de foto wanneer erop wordt geklikt
+        document.getElementById('photo').style.display = 'none';
+        // Start het aftellen opnieuw voor 10 seconden
+        setTimeout(showPhoto, 10000);
+    });
+}
+
+// bron: chatgpt
+function executeWithChance() {
+    // Genereren van een willekeurig getal tussen 1 en 10
+    let randomChance = Math.floor(Math.random() * 10) + 1;
+    // Als het willekeurige getal 1 is, voer dan de showPhoto functie uit
+    if (randomChance === 1) {
+        setTimeout(showPhoto, 2000); // Voer de showPhoto functie uit na 2 seconden
+    } else {
+        console.log("Random nummer was niet 1. Opnieuw proberen...");
+        // Probeer opnieuw met een vertraging van 2 seconden
+        setTimeout(executeWithChance, 2000);
+    }
+}
+
+// Roep de functie aan om de code uit te voeren met een kans van 1 op 10
+executeWithChance();
+
+// extra koekjes door gouden koekje
+function gold() {
+    aantalkoekjes += 1000;
+}
+
+photo.addEventListener('click', gold);
+
+
 
 
 
