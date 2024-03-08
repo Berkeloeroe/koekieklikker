@@ -6,6 +6,7 @@ let powerKlikPrijs = 20;
 let autoKlikPrijs = 50;
 const fps = 60;
 
+// zo kan ik makkelijker dingen kopen om code te testen
 let developmentmode = false;
 
 if (developmentmode === true) {
@@ -32,7 +33,7 @@ function powerKlik(){
     if(aantalkoekjes >= powerKlikPrijs) {
         koekjesPerKlik += 1;
         aantalkoekjes -= powerKlikPrijs;
-        powerKlikPrijs = Math.round(powerKlikPrijs *1.7);
+        powerKlikPrijs = Math.round(powerKlikPrijs *1.4);
         document.getElementById("test").innerHTML = minikoekfoto + powerKlikPrijs;
         shopify.play();
 
@@ -49,7 +50,7 @@ function bakker() {
     if(aantalkoekjes >= autoKlikPrijs) {
         aantalkoekjes -= autoKlikPrijs;
         koekjesPerSeconde += 1;
-        autoKlikPrijs = Math.round(autoKlikPrijs *1.7);
+        autoKlikPrijs = Math.round(autoKlikPrijs *1.4);
         document.getElementById("test2").innerHTML = minikoekfoto + autoKlikPrijs;
         shopify.play();
         // Koekjes per seconde updaten in html
@@ -63,7 +64,7 @@ function bakker() {
 
 autoUpgrade.addEventListener('click', bakker);
 
-// automatisch koekjes erbij per seconde
+// automatisch koekjes erbij per seconde 
 setInterval(function() {
     aantalkoekjes += koekjesPerSeconde/fps;
     updateKoekjes();
@@ -95,42 +96,44 @@ let shopify = document.getElementById("shopify");
 
 });
 
-
-
-
-  
-
-
-
-
-// Functie om de foto na 10 seconden weer te geven bron: chatgpt
+// Functie om de foto te weergeven
 function showPhoto() {
     document.getElementById('photo').style.display = 'block';
     // Event listener toevoegen aan de foto om te luisteren naar klikgebeurtenissen
     document.getElementById('photo').addEventListener('click', function() {
         // Verberg de foto wanneer erop wordt geklikt
         document.getElementById('photo').style.display = 'none';
-        // Start het aftellen opnieuw voor 10 seconden
-        setTimeout(showPhoto, 10000);
     });
+
+    // Timer toevoegen om de foto te verbergen als er niet op wordt geklikt binnen 5 seconden
+    setTimeout(function() {
+        if (document.getElementById('photo').style.display !== 'none') {
+            console.log("Geen klik binnen 5 seconden. De foto wordt verborgen.");
+            document.getElementById('photo').style.display = 'none';
+        }
+    }, 5000);
 }
 
-// bron: chatgpt
+// Functie om executeWithChance elke 10 seconden uit te voeren
+function executePeriodically() {
+    executeWithChance();
+    setTimeout(executePeriodically, 10000);
+}
+
+// Functie om de showPhoto functie uit te voeren met een kans van 1 op 3
 function executeWithChance() {
-    // Genereren van een willekeurig getal tussen 1 en 10
-    let randomChance = Math.floor(Math.random() * 10) + 1;
+    // Genereren van een willekeurig getal tussen 1 en 3
+    let randomChance = Math.floor(Math.random() * 3) + 1;
     // Als het willekeurige getal 1 is, voer dan de showPhoto functie uit
     if (randomChance === 1) {
-        setTimeout(showPhoto, 2000); // Voer de showPhoto functie uit na 2 seconden
+        showPhoto();
     } else {
         console.log("Random nummer was niet 1. Opnieuw proberen...");
-        // Probeer opnieuw met een vertraging van 2 seconden
-        setTimeout(executeWithChance, 2000);
     }
 }
 
-// Roep de functie aan om de code uit te voeren met een kans van 1 op 10
-executeWithChance();
+// Roep de functie aan om de code uit te voeren
+executePeriodically();
 
 // extra koekjes door gouden koekje
 function gold() {
@@ -138,10 +141,3 @@ function gold() {
 }
 
 photo.addEventListener('click', gold);
-
-
-
-
-
-
-
