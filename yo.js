@@ -141,3 +141,4 @@ function gold() {
 }
 
 photo.addEventListener('click', gold);
+
