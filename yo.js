@@ -52,6 +52,8 @@ function bakker() {
         autoKlikPrijs = Math.round(autoKlikPrijs *1.7);
         document.getElementById("test2").innerHTML = minikoekfoto + autoKlikPrijs;
         shopify.play();
+        let kps = document.getElementById("kps")
+        document.getElementById("kps").innerHTML = koekjesPerSeconde + " " + "Koekjes per seconden";
 
     } else {
         alert("Te weinig koekjes om te kopen")
@@ -91,3 +93,16 @@ let shopify = document.getElementById("shopify");
     shopify.currentTime = 0;
 
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Selecteer het audio-element
+    let lol = document.getElementById("myAudio");
+    // Speel het geluid af
+    lol.play();
+  });
+
+
+
+
+
