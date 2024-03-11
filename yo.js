@@ -55,7 +55,7 @@ function bakker() {
         shopify.play();
         // Koekjes per seconde updaten in html
         let kps = document.getElementById("kps")
-        document.getElementById("kps").innerHTML = koekjesPerSeconde + " " + "Koekjes per seconden";
+        document.getElementById("kps").innerHTML = koekjesPerSeconde + " " + "per seconde";
 
     } else {
         alert("Te weinig koekjes om te kopen")
@@ -141,4 +141,27 @@ function gold() {
 }
 
 photo.addEventListener('click', gold);
+
+
+// Variabele voor het hoogste aantal behaalde koekjes
+let hoogsteAantalKoekjes = 0;
+
+// Functie om het aantal koekjes te verhogen
+function verhoogKoekjes() {
+    aantalkoekjes += koekjesPerKlik;
+    // Controleren of het huidige aantal koekjes hoger is dan het hoogste aantal
+    if (aantalkoekjes > hoogsteAantalKoekjes) {
+        // Bijwerken van het hoogste aantal koekjes
+        hoogsteAantalKoekjes = aantalkoekjes;
+        // Automatisch bijwerken van de hoogste koekjes op de pagina
+        updateHoogsteKoekjes();
+    }
+    updateKoekjes();
+}
+
+// Functie om het hoogste aantal koekjes op de pagina bij te werken
+function updateHoogsteKoekjes() {
+    const hoogsteKoekjesVeld = document.getElementById('hoogsteKoekjesVeld');
+    hoogsteKoekjesVeld.textContent = "Hoogste aantal koekjes: " + Math.round(hoogsteAantalKoekjes);
+}
 

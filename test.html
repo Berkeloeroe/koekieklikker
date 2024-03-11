@@ -1,43 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Show Photo After 10 Seconds</title>
-<style>
-  #photo {
-    display: none;
-    cursor: pointer;
-
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Spelletje</title>
+  <style>
+    .card {
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+      margin: 5px;
+      display: inline-block;
+      text-align: center;
+      line-height: 100px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
+  <div id="game"></div>
 
-<img id="photo" src="media/koek.png" alt="Your Photo">
+  <script>
+    const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'brown'];
+    let firstCard = null;
+    let secondCard = null;
+    let lockBoard = false;
 
-<script>
-  // Functie om de foto na 10 seconden weer te geven
-  function showPhoto() {
-    document.getElementById('photo').style.display = 'block';
-  }
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
 
-  // Wachten op 10 seconden voordat de foto wordt weergegeven
-  setTimeout(showPhoto, 2000);
+    function createBoard() {
+      const game = document.getElementById('game');
+      const shuffledColors = colors.concat(colors);
+      shuffle(shuffledColors);
+      shuffledColors.forEach(color => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.dataset.color = color;
+        card.addEventListener('click', flipCard);
+        game.appendChild(card);
+      });
+    }
 
-let aantalkoekjes = 0;
-let koekjesVeld = document.querySelector('h2');
+    function flipCard() {
+      if (lockBoard) return;
+      if (this === firstCard) return;
 
-// verhoog het aantal koekjes
+      this.style.backgroundColor = this.dataset.color;
 
-photo.addEventListener('click', updateKoekjes);
+      if (!firstCard) {
+        firstCard = this;
+      } else {
+        secondCard = this;
+        checkMatch();
+      }
+    }
 
-// h2 updaten naar aantal koekjes
-function updateKoekjes() {
-    alert("Te weinig koekjes om te kopen");
+    function checkMatch() {
+      if (firstCard.dataset.color === secondCard.dataset.color) {
+        firstCard.removeEventListener('click', flipCard);
+        secondCard.removeEventListener('click', flipCard);
+        resetBoard();
+      } else {
+        lockBoard = true;
+        setTimeout(() => {
+          firstCard.style.backgroundColor = '#ccc';
+          secondCard.style.backgroundColor = '#ccc';
+          resetBoard();
+        }, 1000);
+      }
+    }
 
-}
-</script>
+    function resetBoard() {
+      [firstCard, secondCard] = [null, null];
+      lockBoard = false;
+    }
 
+    createBoard();
+  </script>
 </body>
 </html>
