@@ -74,7 +74,8 @@ h3 {
 }
 
 #koekje:active {
-    width: 380px;
+    width: 360px;
+    transition: width 0.05s;
 }
 
 @media (max-widht: 500px) {
