@@ -27,7 +27,7 @@ function updateKoekjes() {
     koekjesVeld.textContent = Math.round(aantalkoekjes) + " " + "-" + " Koekjes!";
 }
 
-let minikoekfoto = "<img src='media/koek.png' alt='Foto' class='minikoek'/>";
+let minikoekfoto = "<img src='media/fotos/koek.png' alt='Foto' class='minikoek'/>";
 
 // powerklik upgrade
 function powerKlik(){
@@ -56,7 +56,7 @@ function bakker() {
         shopify.play();
         // Koekjes per seconde updaten in html
         let kps = document.getElementById("kps")
-        document.getElementById("kps").innerHTML = koekjesPerSeconde + " " + "Koekjes per seconden";
+        document.getElementById("kps").innerHTML = koekjesPerSeconde + " " + " per seconden";
 
     } else {
         alert("Te weinig koekjes om te kopen")
