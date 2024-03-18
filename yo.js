@@ -90,20 +90,20 @@ let shopify = document.getElementById("shopify");
 
 });
 
-// Functie om de foto te weergeven
-function showPhoto() {
-    document.getElementById('photo').style.display = 'block';
+// Functie om gouden koekje te weergeven
+function showgoudenkoekje() {
+    document.getElementById('goudenkoekje').style.display = 'block';
     // Event listener toevoegen aan de foto om te luisteren naar klikgebeurtenissen
-    document.getElementById('photo').addEventListener('click', function() {
+    document.getElementById('goudenkoekje').addEventListener('click', function() {
         // Verberg de foto wanneer erop wordt geklikt
-        document.getElementById('photo').style.display = 'none';
+        document.getElementById('goudenkoekje').style.display = 'none';
     });
 
     // Timer toevoegen om de foto te verbergen als er niet op wordt geklikt binnen 5 seconden
     setTimeout(function() {
-        if (document.getElementById('photo').style.display !== 'none') {
+        if (document.getElementById('goudenkoekje').style.display !== 'none') {
             console.log("Geen klik binnen 5 seconden. De foto wordt verborgen.");
-            document.getElementById('photo').style.display = 'none';
+            document.getElementById('goudenkoekje').style.display = 'none';
         }
     }, 5000);
 }
@@ -114,13 +114,13 @@ function executePeriodically() {
     setTimeout(executePeriodically, 10000);
 }
 
-// Functie om de showPhoto functie uit te voeren met een kans van 1 op 3
+// Functie om de showgoudenkoekje functie uit te voeren met een kans van 1 op 3
 function executeWithChance() {
-    // Genereren van een willekeurig getal tussen 1 en 3
-    let randomChance = Math.floor(Math.random() * 3) + 1;
-    // Als het willekeurige getal 1 is, voer dan de showPhoto functie uit
+    // Genereren van een willekeurig getal tussen 1 en 10
+    let randomChance = Math.floor(Math.random() * 10) + 1;
+    // Als het willekeurige getal 1 is, voer dan de showgoudenkoekje functie uit
     if (randomChance === 1) {
-        showPhoto();
+        showgoudenkoekje();
     } else {
         console.log("Random nummer was niet 1. Opnieuw proberen...");
     }
@@ -133,21 +133,8 @@ executePeriodically();
 function gold() {
     aantalkoekjes += 1000;
 }
-
-photo.addEventListener('click', gold);
-
-
-photo.addEventListener('click', gold);
-
-// Functie om de afbeelding van het koekje te veranderen op basis van het aantal koekjes
-      function changeCookieImage() {
-        let koekje = document.getElementById("koekje");
-        if (aantalkoekjes >= 100) {
-          koekje.src = "media/fotos/chocolate_cookie.png"; // Verander de afbeelding naar een chocoladekoekje als je 100 koekjes of meer hebt
-        } else {
-          koekje.src = "media/fotos/koek.png"; // Anders behoudt het koekje zijn standaardafbeelding
-        }
-      }
+// eventlisteren om code uit te voeren
+goudenkoekje.addEventListener('click', gold);
 
       // Functie om een koopknop toe te voegen voor het wijzigen van de afbeeldingen
       function buyImageUpgrade() {
