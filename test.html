@@ -47,13 +47,15 @@
           <img id="autoUpgrade" src="media/fotos/bakker.png" alt="klik" />
           <audio id="shopify" src="media/pingpong.mp3"></audio>
         </div>
-        <div>      
-        <button id="buyUpgradeButton">Koop regenboog skin</button>
-        <button id="resetImageButton">Default skin</button>
-
-      </div>
-        <!-- werkt niet -->
-        <audio id="myAudio" src="media/intro.ogg" autoplay></audio>
+        <div>
+          <h3>Regenboog skin</h3>
+          <h3 id="test2">
+            <img class="minikoek" src="media/fotos/koek.png" alt="minikoek" />1000
+          </h3>
+          <img id="buyUpgradeButton" src="media/fotos/Rectangle 13.png" alt="klik" />
+          <audio id="shopify" src="media/pingpong.mp3"></audio>
+          <button id="resetImageButton">Default skin</button>
+        </div>     
       </footer>
       
 
@@ -216,7 +218,7 @@ photo.addEventListener('click', gold);
       // Functie om een koopknop toe te voegen voor het wijzigen van de afbeeldingen
       function buyImageUpgrade() {
         let koekje = document.getElementById("koekje");
-        if (aantalkoekjes >= 20) {
+        if (aantalkoekjes >= 100) {
           koekje.src = "media/fotos/regenboog.png"; // Verander de afbeelding naar een chocoladekoekje
           aantalkoekjes -= 50; // Verminder het aantal koekjes met de kosten van de upgrade
           updateKoekjes(); // Update het aantal koekjes op het scherm

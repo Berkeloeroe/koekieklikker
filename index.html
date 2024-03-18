@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Koekie Klikkers</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/x-icon" href="media/koek.png" />
+    <link rel="icon" type="image/x-icon" href="media/fotos/koek.png" />
     <meta name="theme-color" content="#060F16" />
   </head>
   <body>
@@ -14,12 +14,9 @@
       <header>
         <h1>RANDY'S BAKKERIJ</h1>
         <h2>Koekjes</h2>
-        <h3 id="kps">0 per seconde</h2>
-          <!-- <p id="hoogsteKoekjesVeld">Hoogste aantal koekjes: 0</p> -->
-
         <!-- <h2>koekjes per seconden</h2> -->
+        <h3 id="kps">0 per seconde</h2>
       </header>
-      <audio id="intro" src="media/intro.ogg" preload="auto"></audio>
       <!-- Sectie met koekje erin -->
       <section id="eerste">
         <img id="koekje" src="media/fotos/koek.png" alt="koekje" />
@@ -31,6 +28,7 @@
       </section>
       <!-- Footer met upgrades -->
       <footer class="tweede">
+        <!-- Powerklik upgrade -->
         <div>
           <h3>Power klik + 1</h3>
           <h3 id="test">
@@ -39,6 +37,7 @@
           <img id="klikUpgrade" src="media/fotos/Rectangle 12 (1).png" alt="klik" />
           <audio id="shopify" src="media/pingpong.mp3"></audio>
         </div>
+        <!-- Bakker upgrade -->
         <div>
           <h3>Bakker kps + 1</h3>
           <h3 id="test2">
@@ -47,6 +46,16 @@
           <img id="autoUpgrade" src="media/fotos/bakker.png" alt="klik" />
           <audio id="shopify" src="media/pingpong.mp3"></audio>
         </div>
+        <!-- regenboog skin -->
+        <div>
+          <h3>Regenboog skin</h3>
+          <h3 id="test2">
+            <img class="minikoek" src="media/fotos/koek.png" alt="minikoek" />1000
+          </h3>
+          <img id="buyUpgradeButton" src="media/fotos/Rectangle 13.png" alt="klik" />
+          <audio id="shopify" src="media/pingpong.mp3"></audio>
+          <button id="resetImageButton">Default skin</button>
+        </div> 
       </footer>
     </main>
     <script src="yo.js"></script>

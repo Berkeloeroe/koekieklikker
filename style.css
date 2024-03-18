@@ -10,6 +10,7 @@ body {
     overflow-x: hidden;
 }
 
+/* mobiel */
 @media (max-widht: 500px) {
 
     body {
@@ -22,7 +23,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 1000px;
+    height: 900px;
 }
 
 header {
@@ -42,6 +43,7 @@ header {
     max-width: 100%;
 }
 
+/* footer */
 .tweede {
     display: flex;
     justify-content: center;
@@ -65,7 +67,7 @@ h3 {
     font-style: normal;
 }
 
-/* koekje laten draaien */
+/* koekje in het midden */
 #koekje {
     width: 400px;
     cursor: pointer;
@@ -113,6 +115,14 @@ h3 {
     border-radius: 15px;
 }
 
+/* regenboog upgrade foto */
+#buyUpgradeButton {
+    width: 200px;
+    cursor: pointer;
+    touch-action: manipulation;
+    border-radius: 15px;
+}
+
 @media (max-widht: 500px) {
 
     #klikUpgrade {
@@ -134,7 +144,6 @@ gap: 10px;
 
 #photo {
     position: absolute;
-  
     margin-right: 40%;
     display: none;
     cursor: pointer;
