@@ -99,7 +99,7 @@ h3 {
     }
 }
 
-/* powerklik foto */
+/* powerklik upgrade fotos. ja ik heb 4x dezelde css */
 #klikUpgrade {
     width: 200px;
     cursor: pointer;
@@ -123,8 +123,7 @@ h3 {
     border-radius: 15px;
 }
 
-/* allesin1 */
-.allesin1 {
+#resetImageButton {
     width: 200px;
     cursor: pointer;
     touch-action: manipulation;

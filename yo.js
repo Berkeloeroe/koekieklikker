@@ -72,6 +72,7 @@ let image = document.getElementById("koekje");
 let audio = document.getElementById("eetGeluid");
 
     koekje.addEventListener("click", function () {
+    // 0 omdat je het geluid kan spammen
     audio.currentTime = 0;
     audio.play();
 });
@@ -136,29 +137,37 @@ executePeriodically();
 function gold() {
     aantalkoekjes += 1000;
 }
+
 // eventlisteren om code uit te voeren
 goudenkoekje.addEventListener('click', gold);
 
-      // Functie om een koopknop toe te voegen voor het wijzigen van de afbeeldingen
-      function buyImageUpgrade() {
-        let koekje = document.getElementById("koekje");
-        if (aantalkoekjes >= 1000) {
-          koekje.src = "media/fotos/regenboog.png"; // Verander de afbeelding naar een chocoladekoekje
-          aantalkoekjes -= 1000; // Verminder het aantal koekjes met de kosten van de upgrade
-          updateKoekjes(); // Update het aantal koekjes op het scherm
-        } else {
-          alert("Te weinig koekjes om te kopen");
-        }
-      }
+let gekocht = false;
+let regenboogPrijs = 1000;
 
-      // eventlisteneren om code uittevoeren met klik
-      document.getElementById("buyUpgradeButton").addEventListener("click", buyImageUpgrade);
+// Functie om een koopknop toe te voegen voor het wijzigen van de afbeeldingen
+function buyImageUpgrade() {
+    let koekje = document.getElementById("koekje");
+    if (!gekocht && aantalkoekjes >= regenboogPrijs) {
+        koekje.src = "media/fotos/regenboogshadow.png"; 
+        aantalkoekjes -= regenboogPrijs; 
+        updateKoekjes(); 
+        gekocht = true;
+    } else if (gekocht) {
+        koekje.src = "media/fotos/regenboogshadow.png"; // Als de afbeelding al is gekocht, zet het gewoon naar regenboog afbeelding
+    } else {
+        alert("Te weinig koekjes om te kopen");
+    }
+}
 
-      // Functie om de afbeelding terug te veranderen naar de standaardafbeelding
-      function resetCookieImage() {
-        let koekje = document.getElementById("koekje");
-        koekje.src = "media/fotos/koek.png"; // Verander de afbeelding terug naar de standaardafbeelding
-      }
+// eventlisteneren om code uit te voeren met klik
+document.getElementById("buyUpgradeButton").addEventListener("click", buyImageUpgrade);
 
-      // Voeg event listeners toe aan de knoppen
-      document.getElementById("resetImageButton").addEventListener("click", resetCookieImage);
+// Functie om de afbeelding terug te veranderen naar de standaardafbeelding
+function resetCookieImage() {
+    let koekje = document.getElementById("koekje");
+    koekje.src = "media/fotos/koek.png";
+}
+
+// Voeg event listeners toe aan de knoppen
+
+resetImageButton.addEventListener('click', resetCookieImage);
