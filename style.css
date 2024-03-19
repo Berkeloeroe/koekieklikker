@@ -10,15 +10,6 @@ body {
     overflow-x: hidden;
 }
 
-/* mobiel */
-@media (max-widht: 500px) {
-
-    body {
-        background-image: url("media/bgmobile.png");
-    }
-
-}
-
 main {
     display: flex;
     flex-direction: column;
@@ -50,7 +41,7 @@ header {
     gap: 5%;
 }
 
-@media (max-widht: 500px) {
+@media (max-width: 500px) {
 
     .tweede {
             display: flex;
