@@ -106,7 +106,7 @@ function showgoudenkoekje() {
     // Timer toevoegen om de foto te verbergen als er niet op wordt geklikt binnen 5 seconden bron:chatgpt
     setTimeout(function() {
         if (document.getElementById('goudenkoekje').style.display !== 'none') {
-            console.log("Geen klik binnen 5 seconden. De foto wordt verborgen.");
+            // console.log("Geen klik binnen 5 seconden. De foto wordt verborgen.");
             document.getElementById('goudenkoekje').style.display = 'none';
         }
     }, 5000);
@@ -173,21 +173,18 @@ function resetCookieImage() {
 // Voeg event listeners toe aan de knoppen
 resetImageButton.addEventListener('click', resetCookieImage);
 
-
-
-
- // Simpel woordraadspelletje met forEach-loop en willekeurig juist antwoord, elke 10 seconden uitgevoerd
+ // Simpel woordraadspelletje met forEach-loop en willekeurig juist antwoord, elke 60 seconden uitgevoerd
       function raadHetWoord() {
         // Lijst van woorden om te raden
         var woorden = ["fortnite", "griddy", "sus", "poep", "scheet"];
 
         // Kies willekeurig één woord als het juiste antwoord
         var juistWoord = woorden[Math.floor(Math.random() * woorden.length)];
-        console.log(juistWoord)
+        // console.log(juistWoord)
 
         // Bericht voor de speler
         var bericht =
-          "Welkom bij het raat het woord!\nWin 100000 of verlies 10000\n\nRaad een van de volgende woorden:\n";
+          "Welkom bij het raad het woord!\nWin 100000 of verlies 10000\n\nRaad een van de volgende woorden:\n";
 
         // Voeg de woorden toe aan het bericht
         woorden.forEach(function (woord) {
@@ -202,13 +199,13 @@ resetImageButton.addEventListener('click', resetCookieImage);
           // Controleer of de gok overeenkomt met het juiste woord
           if (gok && gok.toLowerCase() === juistWoord) {
             alert(
-              "Gefeliciteerd! Je hebt het juiste woord geraden: " + juistWoord + "je wint 100000 koekjes"
+              "Gefeliciteerd! Je hebt het juiste woord geraden: " + juistWoord + "" + "je wint 100000 koekjes"
             );
                 aantalkoekjes += 100000;
 
           } else {
             alert(
-              "Helaas, dat is niet correct. Het juiste woord was: " + juistWoord +"je verliest 10000 koekjes"
+              "Helaas, dat is niet correct. Het juiste woord was: " + juistWoord + "" + "je verliest 10000 koekjes"
             );
             aantalkoekjes -= 10000;
 
@@ -224,5 +221,5 @@ resetImageButton.addEventListener('click', resetCookieImage);
         setInterval(raadHetWoord, 60000); // 10 seconden = 10000 milliseconden
       }
 
-      // Stel in dat de functie speelOmDe10Seconden 10 seconden na het laden van de pagina wordt uitgevoerd
-      setTimeout(speelOmDe10Seconden, 60000); // 10 seconden = 10000 milliseconden
+      // Stel in dat de functie speelOmDe10Seconden 60 seconden na het laden van de pagina wordt uitgevoerd
+      setTimeout(speelOmDe10Seconden, 60000); 
