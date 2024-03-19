@@ -68,16 +68,25 @@ h3 {
 }
 
 /* koekje in het midden */
-#koekje {
+/* #koekje {
     width: 400px;
     cursor: pointer;
     animation: rotation 60s infinite linear;
     touch-action: manipulation;
+} */
+
+/* koekje in het midden */
+#koekje {
+    width: 400px;
+    cursor: pointer;
+    /* animation: rotation 60s infinite linear; */
+    touch-action: manipulation;
+    transition: transform 0.05s;
 }
 
+/* Verklein het koekje visueel bij actieve staat */
 #koekje:active {
-    width: 360px;
-    transition: width 0.05s;
+    transform: scale(0.9);
 }
 
 @media (max-widht: 500px) {
@@ -89,7 +98,7 @@ h3 {
 }
 
 /* https: //flaviocopes.com/rotate-image/ */
-@keyframes rotation {
+/* @keyframes rotation {
     from {
         transform: rotate(0deg);
     }
@@ -97,7 +106,7 @@ h3 {
     to {
         transform: rotate(360deg);
     }
-}
+} */
 
 /* powerklik upgrade fotos. ja ik heb 4x dezelde css */
 #klikUpgrade {
