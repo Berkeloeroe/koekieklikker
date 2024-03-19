@@ -46,7 +46,7 @@ function bakker() {
     if(aantalkoekjes >= autoKlikPrijs) {
         aantalkoekjes -= autoKlikPrijs;
         koekjesPerSeconde += 1;
-        autoKlikPrijs = Math.round(autoKlikPrijs *1.2);
+        autoKlikPrijs = Math.round(autoKlikPrijs *1.3);
         document.getElementById("test2").innerHTML = minikoekfoto + autoKlikPrijs;
         shopify.play();
         // Koekjes per seconde updaten in html
