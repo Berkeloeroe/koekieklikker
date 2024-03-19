@@ -50,6 +50,30 @@ header {
     gap: 5%;
 }
 
+@media (max-widht: 500px) {
+
+    .tweede {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5%;
+        }
+    
+        .tweede>div {
+            flex-basis: 45%;
+            margin-bottom: 20px;
+        }
+    
+        .tweede>div:nth-child(1),
+        .tweede>div:nth-child(2) {
+            flex-basis: calc(50% - 5%);
+        }
+
+}
+
+
+
+
 /* typografie */
 h1, h2 {
     font-size: 36px;
