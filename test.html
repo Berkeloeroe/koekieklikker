@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="media/fotos/koek.png" />
+    <meta name="theme-color" content="#060F16" />
+  </head>
+  <body>
+    <script>
+      // Simpel woordraadspelletje met forEach-loop en willekeurig juist antwoord, elke 10 seconden uitgevoerd
+      function raadHetWoord() {
+        // Lijst van woorden om te raden
+        var woorden = ["appel", "peer", "banaan", "sinaasappel", "kiwi"];
+
+        // Kies willekeurig één woord als het juiste antwoord
+        var juistWoord = woorden[Math.floor(Math.random() * woorden.length)];
+
+        // Bericht voor de speler
+        var bericht =
+          "Welkom bij het woordraadspelletje!\nRaad een van de volgende woorden:\n";
+
+        // Voeg de woorden toe aan het bericht
+        woorden.forEach(function (woord) {
+          bericht += "- " + woord + "\n";
+        });
+
+        // Vraag de speler om een woord te raden
+        var gok = prompt(bericht);
+
+        // Controleer of de speler een antwoord heeft gegeven
+        if (gok !== null) {
+          // Controleer of de gok overeenkomt met het juiste woord
+          if (gok && gok.toLowerCase() === juistWoord) {
+            alert(
+              "Gefeliciteerd! Je hebt het juiste woord geraden: " + juistWoord
+            );
+          } else {
+            alert(
+              "Helaas, dat is niet correct. Het juiste woord was: " + juistWoord
+            );
+          }
+        }
+      }
+
+      // Functie om raadHetWoord elke 10 seconden uit te voeren
+      function speelOmDe10Seconden() {
+        // Voer raadHetWoord uit
+        raadHetWoord();
+        // Stel in dat deze functie elke 10 seconden wordt uitgevoerd
+        setInterval(raadHetWoord, 10000); // 10 seconden = 10000 milliseconden
+      }
+
+      // Stel in dat de functie speelOmDe10Seconden 10 seconden na het laden van de pagina wordt uitgevoerd
+      setTimeout(speelOmDe10Seconden, 10000); // 10 seconden = 10000 milliseconden
+    </script>
+  </body>
+</html>

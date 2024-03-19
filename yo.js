@@ -28,7 +28,7 @@ function powerKlik(){
     if(aantalkoekjes >= powerKlikPrijs) {
         koekjesPerKlik += 1;
         aantalkoekjes -= powerKlikPrijs;
-        powerKlikPrijs = Math.round(powerKlikPrijs *1.4);
+        powerKlikPrijs = Math.round(powerKlikPrijs *1.2);
         document.getElementById("test").innerHTML = minikoekfoto + powerKlikPrijs;
         shopify.play();
 
@@ -46,7 +46,7 @@ function bakker() {
     if(aantalkoekjes >= autoKlikPrijs) {
         aantalkoekjes -= autoKlikPrijs;
         koekjesPerSeconde += 1;
-        autoKlikPrijs = Math.round(autoKlikPrijs *1.4);
+        autoKlikPrijs = Math.round(autoKlikPrijs *1.2);
         document.getElementById("test2").innerHTML = minikoekfoto + autoKlikPrijs;
         shopify.play();
         // Koekjes per seconde updaten in html
@@ -141,10 +141,11 @@ function gold() {
 // eventlisteren om code uit te voeren
 goudenkoekje.addEventListener('click', gold);
 
+// regenboog skin kopen
 let gekocht = false;
 let regenboogPrijs = 1000;
+let h3veld = document.getElementById('regenboogPreis');
 
-// Functie om een koopknop toe te voegen voor het wijzigen van de afbeeldingen
 function buyImageUpgrade() {
     let koekje = document.getElementById("koekje");
     if (!gekocht && aantalkoekjes >= regenboogPrijs) {
@@ -152,8 +153,9 @@ function buyImageUpgrade() {
         aantalkoekjes -= regenboogPrijs; 
         updateKoekjes(); 
         gekocht = true;
+        h3veld.textContent = "In bezit";
     } else if (gekocht) {
-        koekje.src = "media/fotos/regenboogshadow.png"; // Als de afbeelding al is gekocht, zet het gewoon naar regenboog afbeelding
+        koekje.src = "media/fotos/regenboogshadow.png"; 
     } else {
         alert("Te weinig koekjes om te kopen");
     }
@@ -169,5 +171,58 @@ function resetCookieImage() {
 }
 
 // Voeg event listeners toe aan de knoppen
-
 resetImageButton.addEventListener('click', resetCookieImage);
+
+
+
+
+ // Simpel woordraadspelletje met forEach-loop en willekeurig juist antwoord, elke 10 seconden uitgevoerd
+      function raadHetWoord() {
+        // Lijst van woorden om te raden
+        var woorden = ["fortnite", "griddy", "sus", "poep", "scheet"];
+
+        // Kies willekeurig één woord als het juiste antwoord
+        var juistWoord = woorden[Math.floor(Math.random() * woorden.length)];
+        console.log(juistWoord)
+
+        // Bericht voor de speler
+        var bericht =
+          "Welkom bij het raat het woord!\nWin 100000 of verlies 10000\n\nRaad een van de volgende woorden:\n";
+
+        // Voeg de woorden toe aan het bericht
+        woorden.forEach(function (woord) {
+          bericht += "- " + woord + "\n";
+        });
+
+        // Vraag de speler om een woord te raden
+        var gok = prompt(bericht);
+
+        // Controleer of de speler een antwoord heeft gegeven
+        if (gok !== null) {
+          // Controleer of de gok overeenkomt met het juiste woord
+          if (gok && gok.toLowerCase() === juistWoord) {
+            alert(
+              "Gefeliciteerd! Je hebt het juiste woord geraden: " + juistWoord + "je wint 100000 koekjes"
+            );
+                aantalkoekjes += 100000;
+
+          } else {
+            alert(
+              "Helaas, dat is niet correct. Het juiste woord was: " + juistWoord +"je verliest 10000 koekjes"
+            );
+            aantalkoekjes -= 10000;
+
+          }
+        }
+      }
+
+      // Functie om raadHetWoord elke 10 seconden uit te voeren
+      function speelOmDe10Seconden() {
+        // Voer raadHetWoord uit
+        raadHetWoord();
+        // Stel in dat deze functie elke 10 seconden wordt uitgevoerd
+        setInterval(raadHetWoord, 60000); // 10 seconden = 10000 milliseconden
+      }
+
+      // Stel in dat de functie speelOmDe10Seconden 10 seconden na het laden van de pagina wordt uitgevoerd
+      setTimeout(speelOmDe10Seconden, 60000); // 10 seconden = 10000 milliseconden
