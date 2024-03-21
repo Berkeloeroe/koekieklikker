@@ -141,7 +141,7 @@ function gold() {
 // eventlisteren om code uit te voeren
 goudenkoekje.addEventListener('click', gold);
 
-// regenboog skin kopen
+// regenboog skin kopen bron chat gpt
 let gekocht = false;
 let regenboogPrijs = 1000;
 let h3veld = document.getElementById('regenboogPreis');
@@ -173,10 +173,10 @@ function resetCookieImage() {
 // Voeg event listeners toe aan de knoppen
 resetImageButton.addEventListener('click', resetCookieImage);
 
- // Simpel woordraadspelletje met forEach-loop en willekeurig juist antwoord, elke 60 seconden uitgevoerd
+ // Simpel woordraadspelletje met forEach-loop en willekeurig juist antwoord, elke 60 seconden uitgevoerd bron chat gpt
       function raadHetWoord() {
         // Lijst van woorden om te raden
-        var woorden = ["fortnite", "griddy", "sus", "poep", "scheet"];
+        var woorden = ["hopelijk", "heb", "ik", "een", "voldoende"];
 
         // Kies willekeurig één woord als het juiste antwoord
         var juistWoord = woorden[Math.floor(Math.random() * woorden.length)];
@@ -199,13 +199,13 @@ resetImageButton.addEventListener('click', resetCookieImage);
           // Controleer of de gok overeenkomt met het juiste woord
           if (gok && gok.toLowerCase() === juistWoord) {
             alert(
-              "Gefeliciteerd! Je hebt het juiste woord geraden: " + juistWoord + "" + "je wint 100000 koekjes"
+              "Gefeliciteerd! Je hebt het juiste woord geraden: " + juistWoord + "" + "\nje wint 100000 koekjes\n"
             );
                 aantalkoekjes += 100000;
 
           } else {
             alert(
-              "Helaas, dat is niet correct. Het juiste woord was: " + juistWoord + "" + "je verliest 10000 koekjes"
+              "Helaas, dat is niet correct. Het juiste woord was: " + juistWoord + "" + "\nje verliest 10000 koekjes\m"
             );
             aantalkoekjes -= 10000;
 
@@ -213,13 +213,13 @@ resetImageButton.addEventListener('click', resetCookieImage);
         }
       }
 
-      // Functie om raadHetWoord elke 10 seconden uit te voeren
+      // Functie om raadHetWoord elke 60 seconden uit te voeren bron chatgpt
       function speelOmDe10Seconden() {
         // Voer raadHetWoord uit
         raadHetWoord();
-        // Stel in dat deze functie elke 10 seconden wordt uitgevoerd
+        // Stel in dat deze functie elke 60 seconden wordt uitgevoerd
         setInterval(raadHetWoord, 60000); // 10 seconden = 10000 milliseconden
       }
 
-      // Stel in dat de functie speelOmDe10Seconden 60 seconden na het laden van de pagina wordt uitgevoerd
+      // Stel in dat de functie speelOmDe60Seconden 60 seconden na het laden van de pagina wordt uitgevoerd
       setTimeout(speelOmDe10Seconden, 60000); 

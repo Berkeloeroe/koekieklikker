@@ -1,16 +1,11 @@
-Upgrades
-
-middelvinger: https://cdn-icons-png.flaticon.com/512/231/231645.png
-bakker: https://www.istockphoto.com/nl/foto/een-bakker-in-een-bakkerij-tegen-de-schappen-van-brood-gm1148355605-310097452
-
-
-
 Foto's
 
 koekje: prompt: cookie png: https://playground.com/create 
 gouden koekje: prompt: golden cookie png: https://playground.com/create 
 regenboog koekje: prompt: rainbow cookie png: https://playground.com/create 
 achtergrond: https://wallpapercave.com/cookie-clicker-wallpapers
+middelvinger: https://cdn-icons-png.flaticon.com/512/231/231645.png
+bakker: https://www.istockphoto.com/nl/foto/een-bakker-in-een-bakkerij-tegen-de-schappen-van-brood-gm1148355605-310097452
 
 
 
